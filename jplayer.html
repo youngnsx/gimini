@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RTSP Streaming with jPlayer</title>
+    <!-- Include jPlayer CSS and JavaScript -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jplayer/2.9.2/skin/pink.flag/jplayer.pink.flag.min.css" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jplayer/2.9.2/jplayer/jquery.jplayer.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jplayer/2.9.2/add-on/jplayer.playlist.min.js"></script>
+</head>
+<body>
+    <div id="jquery_jplayer" class="jp-jplayer"></div>
+    <div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
+        <div class="jp-type-playlist">
+            <div class="jp-gui jp-interface">
+                <div class="jp-controls">
+                    <button class="jp-play" role="button" tabindex="0">play</button>
+                    <button class="jp-stop" role="button" tabindex="0">stop</button>
+                </div>
+                <div class="jp-progress">
+                    <div class="jp-seek-bar">
+                        <div class="jp-play-bar"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="jp-playlist">
+                <ul>
+                    <li></li> <!-- You can add playlist items here -->
+                </ul>
+            </div>
+            <div class="jp-no-solution">
+                <span>Update Required</span>
+                To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize jPlayer with RTSP stream URL
+        $(document).ready(function(){
+            new jPlayerPlaylist({
+                jPlayer: "#jquery_jplayer",
+                cssSelectorAncestor: "#jp_container_1"
+            }, [
+                {
+                    title: "RTSP Stream",
+                    m4v: "rtsp://wafflecity.synology.me:554/rtsp/streaming?channel=01&subtype=2"
+                }
+            ], {
+                swfPath: "/js",
+                supplied: "m4v",
+                useStateClassSkin: true,
+                autoBlur: false,
+                smoothPlayBar: true,
+                keyEnabled: true
+            });
+        });
+    </script>
+</body>
+</html>
