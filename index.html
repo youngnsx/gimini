@@ -7,7 +7,7 @@
     <script src="https://cdn.rawgit.com/sambernard/videojs-vlcjs/v0.1.4/dist/videojs-vlcjs.min.js"></script>
 </head>
 <body>
-    <video id="my-video" class="video-js" controls width="640" height="360" data-setup='{ "techOrder": ["vlcjs"], "sources": [{ "type": "video/rtsp", "src": "rtsp://wafflecity.synology.me" }] }'></video>
+    <video id="my-video" class="video-js" controls width="640" height="360" data-setup='{ "techOrder": ["vlcjs"], "sources": [{ "type": "video/rtsp", "src": "rtsp://wafflecity.synology.me:554/rtsp/streaming?channel=01&subtype=2" }] }'></video>
 
     <script>
         var player = videojs('my-video');
